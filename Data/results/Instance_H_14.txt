@@ -3,9 +3,6 @@
 c1: 0.25 	 (For travel-time of the buses)
 c2: 0.35 	 (For walking time of the passengers)
 c3: 0.4 	 (For the absolute difference in desired arrival time and actual arrival time of the passengers)
-
----------------------- Parameters -------------------------- 
-
 Number of buses: 5
 Number of mandatory bus stops: 10
 Number optional bus stops per cluster: 3 
