@@ -1,9 +1,10 @@
 // parameters
 #include "parameters/hardcoded.h"
-#include "parameters/ohers.h"
+#include "parameters/others.h"
 #include "parameters/optimization.h"
 
 #include <fstream>
+#include <iostream>
 
 using std::endl;
 
@@ -143,4 +144,46 @@ void writeSolution(){
 		}
 	}
 	txt_walking.close();
+}
+
+
+// Log the costs and solution variables after a run 
+void logRun(std::clock_t& start_time, int& run, std::ofstream& txt_runs){
+	elapsed_time = (double)(clock() - start_time) / CLOCKS_PER_SEC;
+	rt.push_back(elapsed_time);
+	prog.push_back(cost);
+	std::cout << " Run number: " << run + 1 << "   ------------------------------------------------------- " << endl;
+	std::cout << "Computational time: " << elapsed_time << " seconds " << endl;
+
+	//std::cout << "-------- || Solution || -------- " << endl << endl;
+
+	std::cout << "Cost: " << cost << endl << endl;
+
+	txt_runs << cost << "\t" << elapsed_time << endl;
+
+	if ((int)(best_cost*100) == (int)(cost*100) || run == 0) {
+		if (best_rt > elapsed_time) {
+			best_rt = elapsed_time;
+			bestlast = last;
+		}
+		//cout << "better time " << endl;
+	}
+	if (best_cost > cost) {
+		best_prog = prog;
+		best_srt = rt;
+		best_cost = cost;
+
+		for (int i = 0; i < nBuses; i++) {
+			Abest[i] = Ak[i];
+			Dbest[i] = Dk[i];
+			for (int j = 0; j < Stations; j++) {
+				for (int k = 0; k < Stations; k++) ybest[i][j][k] = yk[i][j][k];
+				for (int p = 0; p < C; p++) {
+					xbest[i][p][j] = xk[i][p][j];
+				}
+			}
+		}
+	}
+	rt.clear();
+	prog.clear();
 }

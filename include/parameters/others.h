@@ -43,6 +43,7 @@ extern int cc; // counter for 2-opt swaps
 extern int index1, index2, start, end_i, nextindex, mid, temp; // indices for 2-opt operations
 extern int imand; // index of last mandatory station visited
 
+// processing of the parameters: reading in data, calculating some useful metrics as input for optimization
 void processingParameters();
 
 

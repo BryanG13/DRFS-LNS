@@ -45,7 +45,7 @@ int index1, index2, start, end_i, nextindex, mid, temp; // indices for 2-opt ope
 int imand; // index of last mandatory station visited
 
 
-// processing of he parameters 
+// processing of the parameters: reading in data, calculating some useful metrics as input for optimization
 void processingParameters(){
     if (C % nBuses == 0) estbus = C / nBuses;
 	else estbus = C / nBuses + 1;

@@ -1,6 +1,6 @@
 #include "parameters/random_generators.h"
 #include "parameters/hardcoded.h"
-#include "parameters/ohers.h"
+#include "parameters/others.h"
 
 // Random number generator
 std::default_random_engine rng_engine;
