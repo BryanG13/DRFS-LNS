@@ -1,14 +1,15 @@
 #ifndef HARDCODED_H
 #define HARDCODED_H
 
-extern int instance; // Instance number for indexing purposes
+// Instance/run configuration ----------------------------------------------------------------
+constexpr int instance = 14; // Instance number for indexing purposes (compile-time constant)
 
-extern int nRUN; // Number of runs
+constexpr int nRUN = 10; // Number of runs (compile-time constant)
 
-// WEIGHT FACTORS--------------------------------------------------------------------------
-extern float c1; // (For travel-time of the buses)
-extern float c2; // (For walking time of the passengers)
-extern float c3; // (For the absolute difference in desired arrival time and actual arrival time of the passengers)
+// WEIGHT FACTORS (compile-time constants)--------------------------------------------------
+constexpr float c1 = 0.25f;              // (For travel-time of the buses)
+constexpr float c2 = 0.35f;              // (For walking time of the passengers)
+constexpr float c3 = 1.0f - c1 - c2;     // (For the absolute difference in desired arrival time and actual arrival time)
 
 // Define parameters-----------------------------------------------------------------------
 constexpr int nBuses = 5;                 // number of buses available
@@ -26,9 +27,15 @@ constexpr int d = 20 * 60;             // threshold of individual walking time i
 constexpr int d_time1 = 15 * 60;       // Maximum amount of time a passenger can arrive too early
 constexpr int d_time2 = 5 * 60;        // Maximum amount of time a passenger can arrive too late
 
-extern int f_IT;     // max iteraions for the LNS cycles
-extern int ndestroy; // number of passengers to remove
-extern int secondS;  // Second station selection threshold (percentage)
-extern int thirdS;   // Third station selection threshold (percentage)
+// LNS and destroy/repair parameters (compile-time constants)
+constexpr int f_IT = 5000;        // max iterations for the LNS cycles
+
+// `ndestroy` may be changed at runtime by the heuristic (randomized destroy size).
+// Use an inline variable in the header so it has external linkage but remains
+// defined once across translation units while still being mutable.
+inline int ndestroy = 3;       // default number of passengers to remove
+
+constexpr int secondS = 100 - 25; // Second station selection threshold (percentage)
+constexpr int thirdS = 5;         // Third station selection threshold (percentage)
 
 #endif // HARDCODED_H
