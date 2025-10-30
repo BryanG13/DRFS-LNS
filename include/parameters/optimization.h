@@ -5,9 +5,9 @@
 #include <vector>
 
 // Decision variables: passenger-to-station assignment (x)
-extern bool ***xsol;  //  passenger-to-station assignment: solution being evaluated
-extern bool ***xk;    //  passenger-to-station assignment: current best solution
-extern bool ***xbest; // V passenger-to-station assignment: overall best solution
+extern bool ***xsol;  // passenger-to-station assignment: solution being evaluated
+extern bool ***xk;    // passenger-to-station assignment: current best solution
+extern bool ***xbest; // passenger-to-station assignment: overall best solution
 
 // Decision variables: station-to-station routing (y)
 extern bool yk[nBuses][Stations][Stations];    // station-to-station routing: current best routing

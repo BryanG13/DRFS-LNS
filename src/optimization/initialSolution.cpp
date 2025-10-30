@@ -9,7 +9,6 @@
 // intialize some parameters
 inline void startInitalSolution() {
     // initialize indices
-    cc = 0;
     for (int p = 0; p < C; p++) {
         pindex[p] = 0;
     }
@@ -334,7 +333,7 @@ void twoOptImprovement(std::clock_t &start_time) {
                 mid = (end_i - start) / 2;
 
                 // 2opt
-                for (cc = 1; cc <= mid; cc++) {
+                for (int cc = 1; cc <= mid; cc++) {
                     temp = route[start + cc];
                     route[start + cc] = route[end_i + 1 - cc];
                     route[end_i + 1 - cc] = temp;

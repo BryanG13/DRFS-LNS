@@ -40,9 +40,7 @@ double temparrivals[C]; // temporary copy of arrival times for sorting
 
 // 2 opt
 std::vector<int> route;                                 // route sequence for 2-opt optimization
-int cc;                                                 // counter for 2-opt swaps
 int index1, index2, start, end_i, nextindex, mid, temp; // indices for 2-opt operations
-int imand;                                              // index of last mandatory station visited
 
 // processing of the parameters: reading in data, calculating some useful metrics as input for optimization
 void processingParameters() {

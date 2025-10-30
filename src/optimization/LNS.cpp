@@ -232,19 +232,19 @@ void rebuildOperator() {
         //(ONLY IF NEW PASSENGER GOES TO OPTIONAL STATION)
 
         int j = 0;
-        imand = 0;
+        int lastStop = 0;
 
         // not feasible, forgets stations !!!! ----------------------------------------------------------------------------------------------------
         while (j != N - 1) {
             // cout << j << endl;
             //  determine the last mandatory station visited
             if (j < N - 1) {
-                imand = j;
+                lastStop = j;
             }
 
             // cout << j << " Has NO successor  "  ;
             firstmin = 100000000, firstminj = -1;
-            for (int k = N + imand * M; k < N + (imand + 1) * M; k++) { // first check the optional stations
+            for (int k = N + lastStop * M; k < N + (lastStop + 1) * M; k++) { // first check the optional stations
                 // check if node is in chosen subset
                 inGraph = false;
                 for (int p = 0; p < C; p++) {
@@ -300,7 +300,7 @@ void rebuildOperator() {
 
                 // if (firstminj == -1) cout << " no mandatory available" << endl;
                 // and check the next or previous cluster of optionals
-                for (int k = std::max(N + (imand - 1) * M, N); k < std::min(N + (imand + 2) * M, Stations); k++) { // first check the optional stations
+                for (int k = std::max(N + (lastStop - 1) * M, N); k < std::min(N + (lastStop + 2) * M, Stations); k++) { // first check the optional stations
                                                                                                                    // check if node is in chosen subset
                     inGraph = false;
                     for (int p = 0; p < C; p++) {
@@ -539,7 +539,7 @@ void improvementLNS() {
                 mid = (end_i - start) / 2;
 
                 // 2opt
-                for (cc = 1; cc <= mid; cc++) {
+                for (int cc = 1; cc <= mid; cc++) {
                     temp = route[start + cc];
                     route[start + cc] = route[end_i + 1 - cc];
                     route[end_i + 1 - cc] = temp;
