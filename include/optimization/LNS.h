@@ -1,12 +1,12 @@
 
 
-// Initialize the LNS algorithm 
-void initializeLNS ();
+// Initialize the LNS algorithm
+void initializeLNS();
 
-//  Destroy part of the solution 
+//  Destroy part of the solution
 void destroyOperator();
 
-// Rebuild part of the destroyed solution 
+// Rebuild part of the destroyed solution
 void rebuildOperator();
 
 // Acceptance criteria
