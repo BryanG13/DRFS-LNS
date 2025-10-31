@@ -1,6 +1,6 @@
-# DRFS-LNS: Demand-Responsive Flexible Services with Large Neighborhood Search
+# DRFS-LNS: Demand-Responsive Feeder Service - Large Neighborhood Search Optimization
 
-A C++ implementation of a Large Neighborhood Search (LNS) metaheuristic for solving bus routing optimization problems with flexible demand-responsive services.
+A C++ implementation of a Large Neighborhood Search (LNS) metaheuristic for solving feeder bus routing optimization problems with flexible demand-responsive services.
 
 ## Overview
 
