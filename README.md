@@ -235,17 +235,3 @@ The project includes VS Code configuration:
 - **Build tasks**: Ctrl+Shift+B for quick compilation
 - **IntelliSense**: Full code completion with compile_commands.json
 
-### Memory Safety
-- AddressSanitizer enabled in Debug builds
-- Proper cleanup in `deletePointers()` function
-- RAII principles for vector management
-
-## References
-
-This implementation is based on Large Neighborhood Search metaheuristics combined with local search techniques for vehicle routing problems with time windows and optional stops. This si the code that was used on an academic paper. 
-
-
-## Author
-
-Bryan Galarza (2025)
-
